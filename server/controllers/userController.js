@@ -52,3 +52,32 @@ export const getOne = async(req,res)=>{
 // GET One user End
 
 //PUT request
+export const update = async(req,res)=>{
+    try {
+        const id = req.params.id
+        const userExist = await User.findById(id)
+        if(!userExist){
+            res.status(404).json({msg:"User not found!"})
+        }
+        const updatedData = await User.findByIdAndUpdate(id, req.body, {new: true})
+        res.status(200).json(updatedData)
+    } catch (error) {
+        res.status(500).json({error: error})
+    }
+}
+// PUT END
+
+// DELETE request
+export const deleteUser = async(req,res)=>{
+    try {
+        const id = req.params.id
+        const userExist = await User.findById(id)
+        if(!userExist){
+            res.status(404).json({msg:"User not found"})
+        }
+        await User.findByIdAndDelete(id)
+        res.status(200).json({msg:"User deleted successfully"})
+    } catch (error) {
+        res.status(500).json({error:error})
+    }
+}
