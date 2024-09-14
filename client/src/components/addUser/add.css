@@ -41,5 +41,17 @@
 }
 
 .addUser h3{
-    margin-top: 10px;
+    margin-top: 15px;
+}
+.addUser .link{
+    border: 0;
+    outline: none;
+    background-color: purple;
+    color: white;
+    font-weight: 600;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    
 }

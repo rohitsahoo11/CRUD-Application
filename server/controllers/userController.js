@@ -12,7 +12,10 @@ export const create = async(req,res)=>{
         }
 
         const savedData = await userData.save()
-        res.status(200).json(savedData)
+        res.status(200).json({
+            msg: 'User Created Successfully',
+            user: savedData
+        })
 
     } catch (error) {
         res.status(500).json({error: error})
@@ -60,7 +63,10 @@ export const update = async(req,res)=>{
             res.status(404).json({msg:"User not found!"})
         }
         const updatedData = await User.findByIdAndUpdate(id, req.body, {new: true})
-        res.status(200).json(updatedData)
+        res.status(200).json({
+            msg: "User updated successfully",
+            user: updatedData
+        })
     } catch (error) {
         res.status(500).json({error: error})
     }
