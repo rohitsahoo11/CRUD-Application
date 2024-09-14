@@ -1,16 +1,18 @@
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import './App.css';
+import User from "./components/getUser/User";
+import Add from "./components/addUser/Add";
 
 function App() {
 
   const route = createBrowserRouter([
     {
       path: '/',
-      element: 'Home page'
+      element: <User/>
     },
     {
       path: '/add',
-      element: 'Add user page'
+      element: <Add/>
     },
     {
       path: '/edit',
